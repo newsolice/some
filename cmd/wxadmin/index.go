@@ -22,5 +22,10 @@ func main() {
 
 		w.Write([]byte(time.Now().String()))
 	})
+
+	application.Rout("/example", func(w http.ResponseWriter, r *http.Request) {
+
+		w.Write([]byte(time.Now().String()))
+	})
 	application.Listen(port)
 }
