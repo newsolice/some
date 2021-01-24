@@ -5,6 +5,7 @@ import (
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/newsolice/wx-admin/internal/app"
 	"net/http"
+	"time"
 )
 
 var port string
@@ -18,7 +19,8 @@ func main() {
 	application := app.New()
 
 	application.Rout("/index", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("hell world"))
+
+		w.Write([]byte(time.Now().String()))
 	})
 	application.Listen(port)
 }
